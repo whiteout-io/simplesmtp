@@ -1,6 +1,6 @@
 var testCase = require('nodeunit').testCase,
     runClientMockup = require("rai").runClientMockup,
-    simplesmtp = require("../index"),
+    simplesmtp = require(".."),
     MailComposer = require("mailcomposer").MailComposer,
     fs = require("fs");
 

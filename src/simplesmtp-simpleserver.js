@@ -1,6 +1,6 @@
 "use strict";
 
-var createSMTPServer = require("./server"),
+var createSMTPServer = require("./simplesmtp-server"),
     Stream = require("stream").Stream,
     utillib = require("util"),
     oslib = require("os");

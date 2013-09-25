@@ -1,9 +1,9 @@
 var testCase = require('nodeunit').testCase,
     runClientMockup = require("rai").runClientMockup,
-    simplesmtp = require("../index"),
+    simplesmtp = require(".."),
     fs = require("fs");
 
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0"
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
 var PORT_NUMBER = 8397;
 
