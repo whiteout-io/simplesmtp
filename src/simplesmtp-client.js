@@ -6,8 +6,8 @@ define(function(require) {
     'use strict';
 
     var shims = require("node-shims"),
-        Buffer = (typeof module === 'undefined' && !module.exports) ? shims.Buffer.Buffer : Buffer,
-        Stream = (typeof module === 'undefined' && !module.exports) ? shims.Stream : require('stream'),
+        Buffer = (typeof module === 'undefined' && !module.exports) ? shims.Buffer.Buffer : require('buffer').Buffer,
+        Stream = (typeof module === 'undefined' && !module.exports) ? shims.Stream : require('stream').Stream,
         utillib = (typeof module === 'undefined' && !module.exports) ? shims.util : require('util'),
         net = (typeof module === 'undefined' && !module.exports) ? shims.net : require('net'),
         tls = (typeof module === 'undefined' && !module.exports) ? shims.tls : require('tls'),

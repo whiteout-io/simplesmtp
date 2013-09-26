@@ -1,6 +1,7 @@
 var testCase = require('nodeunit').testCase,
     runClientMockup = require("rai").runClientMockup,
     simplesmtp = require(".."),
+    smtpServer = require('../src/simplesmtp-server'),
     fs = require("fs");
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
@@ -9,7 +10,7 @@ var PORT_NUMBER = 8397;
 
 exports["General tests"] = {
     setUp: function (callback) {
-        this.server = new simplesmtp.createServer();
+        this.server = new smtpServer();
         this.server.listen(PORT_NUMBER, function(err){
             if(err){
                 throw err;
@@ -45,7 +46,7 @@ exports["General tests"] = {
 
 exports["Secure server"] = {
     setUp: function (callback) {
-        this.server = new simplesmtp.createServer({
+        this.server = new smtpServer({
             secureConnection: true
         });
         this.server.listen(PORT_NUMBER, function(err){
@@ -104,7 +105,7 @@ exports["Secure server"] = {
 
 exports["Disabled EHLO"] = {
     setUp: function (callback) {
-        this.server = new simplesmtp.createServer({disableEHLO: true});
+        this.server = new smtpServer({disableEHLO: true});
         this.server.listen(PORT_NUMBER, function(err){
             if(err){
                 throw err;
@@ -140,7 +141,7 @@ exports["Disabled EHLO"] = {
 
 exports["Authentication needed"] = {
     setUp: function (callback) {
-        this.server = new simplesmtp.createServer({
+        this.server = new smtpServer({
             requireAuthentication: true
         });
 
@@ -211,7 +212,7 @@ exports["Authentication needed"] = {
 
 exports["Message tests"] = {
     setUp: function (callback) {
-        this.server = new simplesmtp.createServer({
+        this.server = new smtpServer({
             validateSender: true,
             validateRecipients: true
         });

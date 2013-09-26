@@ -1,6 +1,7 @@
 var testCase = require('nodeunit').testCase,
     runClientMockup = require("rai").runClientMockup,
     simplesmtp = require(".."),
+    smtpServer = require('../src/simplesmtp-server'),
     MailComposer = require("mailcomposer").MailComposer,
     fs = require("fs");
 
@@ -8,7 +9,7 @@ var PORT_NUMBER = 8397;
 
 exports["General tests"] = {
     setUp: function (callback) {
-        this.server = new simplesmtp.createServer({});
+        this.server = new smtpServer({});
         this.server.listen(PORT_NUMBER, function(err){
             if(err){
                 throw err;
@@ -150,7 +151,7 @@ exports["General tests"] = {
 
 exports["Auth fail tests"] = {
     setUp: function (callback) {
-        this.server = new simplesmtp.createServer({
+        this.server = new smtpServer({
             requireAuthentication: true
         });
         
