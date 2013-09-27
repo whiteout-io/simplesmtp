@@ -6,7 +6,7 @@ define(function(require) {
     'use strict';
 
     return {
-        connect: require("./simplesmtp-client.js"),
-        createClientPool: require("./simplesmtp-pool.js")
+        connect: require("./simplesmtp-client"),
+        createClientPool: require("./simplesmtp-pool")
     };
 });

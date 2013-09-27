@@ -6,12 +6,12 @@ define(function(require) {
     'use strict';
 
     var shims = require("node-shims"),
-        Buffer = (typeof module === 'undefined' && !module.exports) ? shims.Buffer.Buffer : require('buffer').Buffer,
-        Stream = (typeof module === 'undefined' && !module.exports) ? shims.Stream : require('stream').Stream,
-        utillib = (typeof module === 'undefined' && !module.exports) ? shims.util : require('util'),
-        net = (typeof module === 'undefined' && !module.exports) ? shims.net : require('net'),
-        tls = (typeof module === 'undefined' && !module.exports) ? shims.tls : require('tls'),
-        crypto = (typeof module === 'undefined' && !module.exports) ? shims.crypto : require('crypto'),
+        Buffer = shims.Buffer.Buffer,
+        Stream = shims.Stream,
+        utillib = shims.util,
+        net = shims.net,
+        tls = shims.tls,
+        crypto = shims.crypto,
         xoauth2 = require("xoauth2");
 
     require('setimmediate');

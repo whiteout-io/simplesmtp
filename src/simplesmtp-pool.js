@@ -6,8 +6,9 @@ define(function(require) {
     'use strict';
 
     var simplesmtpClient = require("./simplesmtp-client"),
-        EventEmitter = require('events').EventEmitter,
-        utillib = require("util"),
+        shims = require('node-shims'),
+        EventEmitter = shims.events.EventEmitter,
+        utillib = shims.util,
         xoauth2 = require("xoauth2");
 
     /**
