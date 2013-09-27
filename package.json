@@ -24,9 +24,9 @@
         }
     ],
     "dependencies": {
-        "xoauth2": "~0.1",
         "setimmediate": ">=1.0.1",
         "amdefine": "~0.0.8",
+        "xoauth2": "https://github.com/whiteout-io/xoauth2/tarball/amd",
         "node-shims": "https://github.com/whiteout-io/node-shims/tarball/master"
     },
     "devDependencies": {
