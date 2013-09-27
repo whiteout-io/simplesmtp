@@ -951,7 +951,7 @@ define(function(require) {
 
         // Waiting for new connections
         this._currentAction = this._actionIdle;
-        process.nextTick(this.emit.bind(this, "idle"));
+        setImmediate(this.emit.bind(this, "idle"));
     };
 
     return function(port, host, options) {

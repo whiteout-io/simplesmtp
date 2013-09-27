@@ -11,6 +11,8 @@ define(function(require) {
         utillib = shims.util,
         xoauth2 = require("xoauth2");
 
+    require('setimmediate');
+
     /**
      * <p>Creates a SMTP connection pool</p>
      *
@@ -142,7 +144,7 @@ define(function(require) {
         }
 
         if (callback) {
-            process.nextTick(callback);
+            setImmediate(callback);
         }
     };
 
