@@ -14,7 +14,7 @@
         "url" : "http://github.com/andris9/simplesmtp.git"
     },
     "scripts":{
-        "test": "nodeunit test/client.js && nodeunit test/pool.js"
+        "test": "nodeunit test/client.js && nodeunit test/server.js && nodeunit test/pool.js"
     },
     "main" : "./src/simplesmtp",
     "licenses" : [
@@ -26,8 +26,9 @@
     "dependencies": {
         "setimmediate": ">=1.0.1",
         "amdefine": "~0.0.8",
+        "node-shims": "https://github.com/whiteout-io/node-shims/tarball/master",
         "xoauth2": "https://github.com/whiteout-io/xoauth2/tarball/amd",
-        "node-shims": "https://github.com/whiteout-io/node-shims/tarball/master"
+        "rai": "~0.1"
     },
     "devDependencies": {
         "rai": "*",
