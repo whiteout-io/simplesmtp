@@ -902,7 +902,9 @@ define(function(require) {
 
         if (!this._envelope.rcptQueue.length) {
             if (this._envelope.rcptFailed.length < this._envelope.to.length) {
-                this.emit("rcptFailed", this._envelope.rcptFailed);
+                if(this._envelope.rcptFailed.length){
+                    this.emit("rcptFailed", this._envelope.rcptFailed);
+                }
                 this._currentAction = this._actionDATA;
                 this.sendCommand("DATA");
             } else {
