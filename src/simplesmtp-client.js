@@ -958,7 +958,6 @@ define(function(require) {
 
     return function(port, host, options) {
         var connection = new SMTPClient(port, host, options);
-        setImmediate(connection.connect.bind(connection));
         return connection;
     };
 });

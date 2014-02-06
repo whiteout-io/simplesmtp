@@ -6,7 +6,7 @@
         define(function(require) {
             var simeplesmtp = {};
 
-            simeplesmtp.connect = require("./simplesmtp-client");
+            simeplesmtp.createClient = require("./simplesmtp-client");
             simeplesmtp.createClientPool = require("./simplesmtp-pool");
 
             // the server was not yet ported...
@@ -18,7 +18,7 @@
 
         module.exports.createServer = require("./simplesmtp-server.js");
         module.exports.createSimpleServer = require("./simplesmtp-simpleserver.js");
-        module.exports.connect = require("./simplesmtp-client.js");
+        module.exports.createClient = require("./simplesmtp-client.js");
         module.exports.createClientPool = require("./simplesmtp-pool.js");
     }
 

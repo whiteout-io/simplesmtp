@@ -192,6 +192,7 @@ define(function(require) {
 
         // as the connection is not ready yet, add to "in use" queue
         this._connectionsInUse.push(connection);
+        connection.connect();
     };
 
     /**

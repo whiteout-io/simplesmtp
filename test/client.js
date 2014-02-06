@@ -26,7 +26,7 @@ exports["General tests"] = {
     },
 
     "Connect and setup": function(test){
-        var client = simplesmtp.connect(PORT_NUMBER);
+        var client = simplesmtp.createClient(PORT_NUMBER);
 
         client.once("idle", function(){
             // Client is ready to take messages
@@ -41,6 +41,7 @@ exports["General tests"] = {
         client.on("end", function(){
             test.done();
         });
+        client.connect();
     }
 };
 
@@ -64,7 +65,7 @@ exports["Secure server"] = {
     },
 
     "Connect and setup": function(test){
-        var client = simplesmtp.connect(PORT_NUMBER, false, {
+        var client = simplesmtp.createClient(PORT_NUMBER, false, {
             secureConnection: true
         });
 
@@ -81,10 +82,11 @@ exports["Secure server"] = {
         client.on("end", function(){
             test.done();
         });
+        client.connect();
     },
 
     "Unsecure client should have timeout": function(test){
-        var client = simplesmtp.connect(PORT_NUMBER, false, {
+        var client = simplesmtp.createClient(PORT_NUMBER, false, {
             secureConnection: false
         });
 
@@ -100,6 +102,7 @@ exports["Secure server"] = {
         client.on("end", function(){
             test.done();
         });
+        client.connect();
     }
 };
 
@@ -121,7 +124,7 @@ exports["Disabled EHLO"] = {
     },
 
     "Connect and setup": function(test){
-        var client = simplesmtp.connect(PORT_NUMBER, false, {});
+        var client = simplesmtp.createClient(PORT_NUMBER, false, {});
 
         client.once("idle", function(){
             // Client is ready to take messages
@@ -136,6 +139,7 @@ exports["Disabled EHLO"] = {
         client.on("end", function(){
             test.done();
         });
+        client.connect();
     }
 };
 
@@ -164,7 +168,7 @@ exports["Authentication needed"] = {
     },
 
     "Auth success": function(test){
-        var client = simplesmtp.connect(PORT_NUMBER, false, {
+        var client = simplesmtp.createClient(PORT_NUMBER, false, {
             auth: {
                 user: "test1",
                 pass: "test2"
@@ -184,10 +188,11 @@ exports["Authentication needed"] = {
         client.on("end", function(){
             test.done();
         });
+        client.connect();
     },
 
     "Auth fails": function(test){
-        var client = simplesmtp.connect(PORT_NUMBER, false, {
+        var client = simplesmtp.createClient(PORT_NUMBER, false, {
             auth: {
                 user: "test3",
                 pass: "test4"
@@ -207,6 +212,7 @@ exports["Authentication needed"] = {
         client.on("end", function(){
             test.done();
         });
+        client.connect();
     }
 };
 
@@ -247,7 +253,7 @@ exports["Message tests"] = {
     "Set envelope success": function(test){
         test.expect(2);
 
-        var client = simplesmtp.connect(PORT_NUMBER, false, {});
+        var client = simplesmtp.createClient(PORT_NUMBER, false, {});
 
         client.once("idle", function(){
             // Client is ready to take messages
@@ -275,12 +281,13 @@ exports["Message tests"] = {
         client.on("end", function(){
             test.done();
         });
+        client.connect();
     },
 
     "Set envelope fails for sender": function(test){
         test.expect(2);
 
-        var client = simplesmtp.connect(PORT_NUMBER, false, {});
+        var client = simplesmtp.createClient(PORT_NUMBER, false, {});
 
         client.once("idle", function(){
             // Client is ready to take messages
@@ -308,12 +315,13 @@ exports["Message tests"] = {
         client.on("end", function(){
             test.done();
         });
+        client.connect();
     },
 
     "Set envelope fails for receiver": function(test){
         test.expect(2);
 
-        var client = simplesmtp.connect(PORT_NUMBER, false, {});
+        var client = simplesmtp.createClient(PORT_NUMBER, false, {});
 
         client.once("idle", function(){
             // Client is ready to take messages
@@ -341,12 +349,13 @@ exports["Message tests"] = {
         client.on("end", function(){
             test.done();
         });
+        client.connect();
     },
 
     "Set envelope partly fails": function(test){
         test.expect(3);
 
-        var client = simplesmtp.connect(PORT_NUMBER, false, {});
+        var client = simplesmtp.createClient(PORT_NUMBER, false, {});
 
         client.once("idle", function(){
             // Client is ready to take messages
@@ -379,12 +388,13 @@ exports["Message tests"] = {
         client.on("end", function(){
             test.done();
         });
+        client.connect();
     },
 
     "Send message success": function(test){
         test.expect(3);
 
-        var client = simplesmtp.connect(PORT_NUMBER, false, {});
+        var client = simplesmtp.createClient(PORT_NUMBER, false, {});
 
         client.once("idle", function(){
             // Client is ready to take messages
@@ -419,12 +429,13 @@ exports["Message tests"] = {
         client.on("end", function(){
             test.done();
         });
+        client.connect();
     },
 
     "Stream message": function(test){
         test.expect(3);
 
-        var client = simplesmtp.connect(PORT_NUMBER, false, {});
+        var client = simplesmtp.createClient(PORT_NUMBER, false, {});
 
         client.once("idle", function(){
             // Client is ready to take messages
@@ -459,6 +470,7 @@ exports["Message tests"] = {
         client.on("end", function(){
             test.done();
         });
+        client.connect();
     }
 
 };
