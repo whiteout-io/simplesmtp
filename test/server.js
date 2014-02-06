@@ -1,6 +1,6 @@
 var testCase = require('nodeunit').testCase,
     runClientMockup = require("rai").runClientMockup,
-    simplesmtp = require("../index"),
+    simplesmtp = require(".."),
     netlib = require("net");
 
 var PORT_NUMBER = 8397;
